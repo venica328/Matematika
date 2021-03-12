@@ -8,8 +8,9 @@ public class Game : MonoBehaviour
 {
     public static Game instance;
     [SerializeField]
-    public Text timeCountDown;
+    public Text timeCountDown, score, fault;
     public int timer = 10;
+    public int curScore, curFaults;
 
 
     private void Awake()
@@ -20,6 +21,8 @@ public class Game : MonoBehaviour
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
+        score.text = "" + 0;
+        fault.text = "" + 0;
 
     }
 
@@ -40,6 +43,18 @@ public class Game : MonoBehaviour
             yield return new WaitForSeconds(1);
             timer--;
         }
+    }
+
+    public void increaseScore()
+    {
+        curScore++;
+        score.text = "" + curScore;
+    }
+
+    public void increaseFaults()
+    {
+        curFaults++;
+        fault.text = "" + curFaults;
     }
 
 

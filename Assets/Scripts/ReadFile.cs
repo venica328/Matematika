@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class ReadFile : MonoBehaviour
 {
-    public Transform sceneWindow;
+    public static ReadFile instance;
     public GameObject cloud1Text;
     public GameObject cloud2Text;
     public GameObject cloud3Text;
@@ -23,11 +23,14 @@ public class ReadFile : MonoBehaviour
     public string zly4;
     public string pom;
     public int rand;
-    public int pocitadlo = 0;
     public int actualLine = 0;
     public string fileName, filePath;
     public string[] stringArray;
 
+    public void Awake()
+    {
+        if (instance == null) instance = this;
+    }
     private void Start()
     {
         fileName = "lowLevel.txt";
@@ -59,9 +62,9 @@ public class ReadFile : MonoBehaviour
         cloud4Text.GetComponent<Text>().text = zly3;
         cloud5Text.GetComponent<Text>().text = zly4;
         tableText.GetComponent<Text>().text = priklad;
-        onClickTable();
+        sortRandom();
     }
-    public void onClickTable()
+    public void sortRandom()
     {
         rand = UnityEngine.Random.Range(1, 5);
         if (rand == 1)
@@ -93,6 +96,8 @@ public class ReadFile : MonoBehaviour
             cloud1Text.GetComponent<Text>().text = pom;
         }
     }
+
+
     
 
 }

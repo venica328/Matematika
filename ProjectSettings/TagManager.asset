@@ -9,6 +9,7 @@ TagManager:
   - Cloud
   - Panel
   - CanvasClouds
+  - cloud1
   layers:
   - Default
   - TransparentFX
