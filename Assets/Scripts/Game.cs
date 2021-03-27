@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     public Text timeCountDown, score, fault;
     public int timer = 10;
-    public int curScore, curFaults;
+    public int curScore, curFaults, finalScore;
 
 
     private void Awake()
@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
         if (timer == 0)
         {
             MenuManager.instance.LoadInputDataScene();
+            finalScore = curScore - curFaults;
         }
     }
 

@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 140418685}
   - component: {fileID: 140418684}
   - component: {fileID: 140418683}
+  - component: {fileID: 140418686}
   m_Layer: 5
   m_Name: Cloud4Button
   m_TagString: Untagged
@@ -330,6 +331,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140418681}
   m_CullTransparentMesh: 0
+--- !u!114 &140418686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140418681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud: {fileID: 0}
+  cloud2: {fileID: 0}
+  cloud3: {fileID: 0}
+  cloud4: {fileID: 140418683}
+  cloud5: {fileID: 0}
 --- !u!1 &160328424
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time: '
+  m_Text: "\u010Cas: "
 --- !u!222 &344245026
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -633,6 +651,7 @@ GameObject:
   - component: {fileID: 395396437}
   - component: {fileID: 395396436}
   - component: {fileID: 395396435}
+  - component: {fileID: 395396438}
   m_Layer: 5
   m_Name: Cloud2Button
   m_TagString: Untagged
@@ -752,6 +771,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395396433}
   m_CullTransparentMesh: 0
+--- !u!114 &395396438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395396433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud: {fileID: 0}
+  cloud2: {fileID: 395396435}
+  cloud3: {fileID: 0}
+  cloud4: {fileID: 0}
+  cloud5: {fileID: 0}
 --- !u!1 &490096173
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.508972, y: 0}
+  m_AnchoredPosition: {x: 25.518997, y: 0}
   m_SizeDelta: {x: 33.636368, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490096175
@@ -877,6 +913,7 @@ MonoBehaviour:
   timer: 60
   curScore: 0
   curFaults: 0
+  finalScore: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -976,6 +1013,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloud: {fileID: 1170480961}
+  cloud2: {fileID: 395396435}
+  cloud3: {fileID: 1907806941}
+  cloud4: {fileID: 140418683}
+  cloud5: {fileID: 570678799}
 --- !u!1 &522484151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1189,7 @@ GameObject:
   - component: {fileID: 570678801}
   - component: {fileID: 570678800}
   - component: {fileID: 570678799}
+  - component: {fileID: 570678802}
   m_Layer: 5
   m_Name: Cloud5Button
   m_TagString: Untagged
@@ -1266,6 +1309,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570678797}
   m_CullTransparentMesh: 0
+--- !u!114 &570678802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570678797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud: {fileID: 0}
+  cloud2: {fileID: 0}
+  cloud3: {fileID: 0}
+  cloud4: {fileID: 0}
+  cloud5: {fileID: 570678799}
 --- !u!1 &579191750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1611,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1632,6 +1692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloud: {fileID: 1170480961}
+  cloud2: {fileID: 0}
+  cloud3: {fileID: 0}
+  cloud4: {fileID: 0}
+  cloud5: {fileID: 0}
 --- !u!1 &1201132554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -145.99998}
+  m_AnchoredPosition: {x: 0, y: -146}
   m_SizeDelta: {x: -543.32574, y: -318.1637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526648226
@@ -2350,6 +2415,7 @@ GameObject:
   - component: {fileID: 1907806943}
   - component: {fileID: 1907806942}
   - component: {fileID: 1907806941}
+  - component: {fileID: 1907806944}
   m_Layer: 5
   m_Name: Cloud3Button
   m_TagString: Untagged
@@ -2469,6 +2535,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907806939}
   m_CullTransparentMesh: 0
+--- !u!114 &1907806944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907806939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud: {fileID: 0}
+  cloud2: {fileID: 0}
+  cloud3: {fileID: 1907806941}
+  cloud4: {fileID: 0}
+  cloud5: {fileID: 0}
 --- !u!1 &2006846003
 GameObject:
   m_ObjectHideFlags: 0

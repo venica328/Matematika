@@ -43,7 +43,7 @@ public class ReadFile : MonoBehaviour
         stringArray = File.ReadAllLines(filePath);
         foreach(string line in stringArray)
         {
-            print(line);
+           // print(line);
         }
     }
     public void displayRandomLine()
