@@ -9,13 +9,11 @@ public class GetScore : MonoBehaviour
 {
     public static GetScore instance;
     public string highscoreURL = "http://unity-matematika.cekuj.net/display.php";
-    [SerializeField]
     public Text getScoreText;
     void Start()
     {
         StartCoroutine(GetScores());
     }
-
     IEnumerator GetScores()
     {
         getScoreText.text = "Loading data";

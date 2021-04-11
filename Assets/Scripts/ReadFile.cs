@@ -9,95 +9,175 @@ using UnityEngine.UI;
 public class ReadFile : MonoBehaviour
 {
     public static ReadFile instance;
-    public GameObject cloud1Text;
-    public GameObject cloud2Text;
-    public GameObject cloud3Text;
-    public GameObject cloud4Text;
-    public GameObject cloud5Text;
-    public GameObject tableText;
-    public string priklad;
-    public string vysledok;
-    public string zly1;
-    public string zly2;
-    public string zly3;
-    public string zly4;
-    public string pom;
-    public int rand;
-    public int actualLine = 0;
-    public string fileName, filePath;
-    public string[] stringArray;
 
-    public void Awake()
+    private string Pom, Priklad, Zly1, Zly2, Zly3, Zly4;
+    private string[] StringArray;
+    private int Rand, Number;
+
+    [SerializeField]
+    public Button buttonLow, buttonHigh, buttonMix;
+    public GameObject cloud1Text, cloud2Text, cloud3Text, cloud4Text, cloud5Text, tableText;
+    public string vysledok, fileName, filePath;
+    
+    
+    private void Awake()
     {
         if (instance == null) instance = this;
-    }
-    private void Start()
-    {
-        fileName = "lowLevel.txt";
-        filePath = Application.dataPath + (@"\Files\" + fileName);
-        readAllLines();
+
+        if(PlayerPrefs.GetString("fileName") == "mixLevel.txt")
+        {
+            Mix();
+        }
+        else if(fileName == "")
+        {
+            fileName = "lowLevel.txt";
+            Debug.Log("filename: " +fileName);
+            filePath = Application.dataPath + (@"\Files\" + fileName);
+        }
+        
+        Debug.Log(filePath);
+        ReadAllLines();
+        DisplayRandomLine();
     }
 
-    public void readAllLines()
+    private void Update()
     {
-        stringArray = File.ReadAllLines(filePath);
-        foreach(string line in stringArray)
+        Number = PlayerPrefs.GetInt("number");
+        Mix();
+    }
+
+    private void Mix()
+    {
+        if(Number < 10)
         {
-           // print(line);
+            fileName = "lowLevel.txt";
+            Debug.Log("filename: " + fileName);
+            PlayerPrefs.SetString("fileName", fileName);
+            filePath = Application.dataPath + (@"\Files\" + fileName);
+            ReadAllLines();
+            Debug.Log(filePath);
+        }
+        else if (Number >= 10 && Number < 15)
+        {
+            fileName = "highLevel.txt";
+            Debug.Log("filename: " + fileName);
+            PlayerPrefs.SetString("fileName", fileName);
+            filePath = Application.dataPath + (@"\Files\" + fileName);
+            ReadAllLines();
+            Debug.Log(filePath);
+        }
+        else if (Number >= 15)
+        {
+            fileName = "mixLevel.txt";
+            Debug.Log("filename: " + fileName);
+            PlayerPrefs.SetString("fileName", fileName);
+            filePath = Application.dataPath + (@"\Files\" + fileName);
+            ReadAllLines();
+            Debug.Log(filePath);
         }
     }
-    public void displayRandomLine()
+
+    private void ReadAllLines()
     {
-        int randomNumber = UnityEngine.Random.Range(0, stringArray.Length);
-        var splitLine = stringArray[randomNumber].Split( ';' );
-        priklad = splitLine[0];
-        vysledok = splitLine[1];
-        zly1 = splitLine[2];
-        zly2 = splitLine[3];
-        zly3 = splitLine[4];
-        zly4 = splitLine[5];
-        cloud1Text.GetComponent<Text>().text = vysledok;
-        cloud2Text.GetComponent<Text>().text = zly1;
-        cloud3Text.GetComponent<Text>().text = zly2;
-        cloud4Text.GetComponent<Text>().text = zly3;
-        cloud5Text.GetComponent<Text>().text = zly4;
-        tableText.GetComponent<Text>().text = priklad;
-        sortRandom();
+        StringArray = File.ReadAllLines(filePath);
+        foreach (string line in StringArray)
+        {
+            // print(line);
+        }
     }
-    public void sortRandom()
+    private void SortRandom()
     {
-        rand = UnityEngine.Random.Range(1, 5);
-        if (rand == 1)
+        Rand = UnityEngine.Random.Range(1, 5);
+        if (Rand == 1)
         {
             cloud1Text.GetComponent<Text>().text = vysledok;
         }
-        else if (rand == 2)
+        else if (Rand == 2)
         {
-            pom = cloud2Text.GetComponent<Text>().text;
+            Pom = cloud2Text.GetComponent<Text>().text;
             cloud2Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = pom;
+            cloud1Text.GetComponent<Text>().text = Pom;
         }
-        else if (rand == 3)
+        else if (Rand == 3)
         {
-            pom = cloud3Text.GetComponent<Text>().text;
+            Pom = cloud3Text.GetComponent<Text>().text;
             cloud3Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = pom;
+            cloud1Text.GetComponent<Text>().text = Pom;
         }
-        else if (rand == 4)
+        else if (Rand == 4)
         {
-            pom = cloud4Text.GetComponent<Text>().text;
+            Pom = cloud4Text.GetComponent<Text>().text;
             cloud4Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = pom;
+            cloud1Text.GetComponent<Text>().text = Pom;
         }
-        else if (rand == 5)
+        else if (Rand == 5)
         {
-            pom = cloud5Text.GetComponent<Text>().text;
+            Pom = cloud5Text.GetComponent<Text>().text;
             cloud5Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = pom;
+            cloud1Text.GetComponent<Text>().text = Pom;
         }
     }
+    public void DisplayRandomLine()
+    {
+        int randomNumber = UnityEngine.Random.Range(0, StringArray.Length);
+        var splitLine = StringArray[randomNumber].Split(';');
+        Priklad = splitLine[0];
+        vysledok = splitLine[1];
+        Zly1 = splitLine[2];
+        Zly2 = splitLine[3];
+        Zly3 = splitLine[4];
+        Zly4 = splitLine[5];
+        cloud1Text.GetComponent<Text>().text = vysledok;
+        cloud2Text.GetComponent<Text>().text = Zly1;
+        cloud3Text.GetComponent<Text>().text = Zly2;
+        cloud4Text.GetComponent<Text>().text = Zly3;
+        cloud5Text.GetComponent<Text>().text = Zly4;
+        tableText.GetComponent<Text>().text = Priklad;
+        SortRandom();
+    }
+    public void LowLevel()
+    {
+        var colors = buttonLow.GetComponent<Button>().colors;
+        var butHigh = buttonHigh.GetComponent<Button>().colors;
+        var butMix = buttonMix.GetComponent<Button>().colors;
 
+        colors.normalColor = Color.green;
+        buttonLow.GetComponent<Button>().colors = colors;
 
-    
+        butHigh.normalColor = Color.white;
+        buttonHigh.GetComponent<Button>().colors = butHigh;
+        butMix.normalColor = Color.white;
+        buttonMix.GetComponent<Button>().colors = butMix;
+    }
+
+    public void HighLevel()
+    {
+        var colors = buttonHigh.GetComponent<Button>().colors;
+        var butLow = buttonLow.GetComponent<Button>().colors;
+        var butMix = buttonMix.GetComponent<Button>().colors;
+
+        colors.normalColor = Color.green;
+        buttonHigh.GetComponent<Button>().colors = colors;
+
+        butLow.normalColor = Color.white;
+        buttonLow.GetComponent<Button>().colors = butLow;
+        butMix.normalColor = Color.white;
+        buttonMix.GetComponent<Button>().colors = butMix;
+    }
+
+    public void MixLevel()
+    {
+        var colors = buttonMix.GetComponent<Button>().colors;
+        var butLow = buttonLow.GetComponent<Button>().colors;
+        var butHigh = buttonHigh.GetComponent<Button>().colors;
+
+        colors.normalColor = Color.green;
+        buttonMix.GetComponent<Button>().colors = colors;
+
+        butLow.normalColor = Color.white;
+        buttonLow.GetComponent<Button>().colors = butLow;
+        butHigh.normalColor = Color.white;
+        buttonHigh.GetComponent<Button>().colors = butHigh;
+    }
 
 }

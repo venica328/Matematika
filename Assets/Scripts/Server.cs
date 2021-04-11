@@ -9,24 +9,17 @@ public class Server : MonoBehaviour
 {
     public static Server instance;
     public string addScoreURL = "http://unity-matematika.cekuj.net/addscore.php?"; 
-    private string secretKey = "janko"; // Edit this value and make sure it's the same as the one stored on the server
+    private readonly string SecretKey = "janko"; 
     [SerializeField]
     public Text sendScoreText, sendName;
-    public string[] items;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
     }
 
-    void Start()
-    {
-        
-        
-    }
-
-    public string Md5Sum(string strToEncrypt)
+    private string Md5Sum(string strToEncrypt)
     {
         System.Text.UTF8Encoding ue = new System.Text.UTF8Encoding();
         byte[] bytes = ue.GetBytes(strToEncrypt);
@@ -51,13 +44,12 @@ public class Server : MonoBehaviour
         StartCoroutine(PostScores(sendName.text, sendScoreText.text));
     }
 
-
     IEnumerator PostScores(string curName, string curScore)
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormFileSection("name", curName));
         formData.Add(new MultipartFormFileSection("score", curScore));
-        string hash = Md5Sum(curName + curScore + secretKey);
+        string hash = Md5Sum(curName + curScore + SecretKey);
         string post_url = addScoreURL + "name=" + curName + "&score=" + curScore + "&hash=" + hash;
 
         UnityWebRequest www = UnityWebRequest.Post(post_url, formData);
@@ -73,5 +65,4 @@ public class Server : MonoBehaviour
             Debug.Log(www);
         }
     }
-
 }

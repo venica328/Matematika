@@ -283,7 +283,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: onCloudClick4
+        m_MethodName: OnCloudClick4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -723,7 +723,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: onCloudClick2
+        m_MethodName: OnCloudClick2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -911,8 +911,6 @@ MonoBehaviour:
   score: {fileID: 1759250609}
   fault: {fileID: 1201132556}
   timer: 60
-  curScore: 0
-  curFaults: 0
   finalScore: 0
 --- !u!20 &519420031
 Camera:
@@ -983,24 +981,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635d59215befaba49ae7807870b8917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonLow: {fileID: 0}
+  buttonHigh: {fileID: 0}
+  buttonMix: {fileID: 0}
   cloud1Text: {fileID: 522484151}
   cloud2Text: {fileID: 1498087206}
   cloud3Text: {fileID: 1439279326}
   cloud4Text: {fileID: 1043591778}
   cloud5Text: {fileID: 579191750}
   tableText: {fileID: 1608177560}
-  priklad: 
   vysledok: 
-  zly1: 
-  zly2: 
-  zly3: 
-  zly4: 
-  pom: 
-  rand: 0
-  actualLine: 0
   fileName: 
   filePath: 
-  stringArray: []
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,8 +1044,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005722, y: -5.1}
-  m_SizeDelta: {x: 43.052765, y: 47.43466}
+  m_AnchoredPosition: {x: 1.6, y: -5.1}
+  m_SizeDelta: {x: 117.8474, y: 47.43466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522484153
 MonoBehaviour:
@@ -1261,7 +1253,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: onCloudClick5
+        m_MethodName: OnCloudClick5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1360,8 +1352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: -0.0000076294}
-  m_SizeDelta: {x: 43.052765, y: 47.43466}
+  m_AnchoredPosition: {x: -2.2, y: -0.0000076294}
+  m_SizeDelta: {x: 125.43526, y: 47.43466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579191752
 MonoBehaviour:
@@ -1504,8 +1496,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 0.0000038147}
-  m_SizeDelta: {x: 43.052765, y: 47.43466}
+  m_AnchoredPosition: {x: -4.9, y: 0.0000038147}
+  m_SizeDelta: {x: 122.183334, y: 47.43466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043591780
 MonoBehaviour:
@@ -1632,7 +1624,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: onCloudClick
+        m_MethodName: OnCloudClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1693,10 +1685,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1170480961}
-  cloud2: {fileID: 0}
-  cloud3: {fileID: 0}
-  cloud4: {fileID: 0}
-  cloud5: {fileID: 0}
+  cloud2: {fileID: 395396435}
+  cloud3: {fileID: 1907806941}
+  cloud4: {fileID: 140418683}
+  cloud5: {fileID: 570678799}
 --- !u!1 &1201132554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,8 +1932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: 0.0000076294}
-  m_SizeDelta: {x: 43.052765, y: 47.43466}
+  m_AnchoredPosition: {x: -5.4, y: 0.0000076294}
+  m_SizeDelta: {x: 110.25951, y: 47.43466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439279328
 MonoBehaviour:
@@ -2018,8 +2010,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000023842, y: -11}
-  m_SizeDelta: {x: 56.454422, y: 54.135498}
+  m_AnchoredPosition: {x: -1.6, y: -11}
+  m_SizeDelta: {x: 135.58498, y: 54.135498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498087208
 MonoBehaviour:
@@ -2098,7 +2090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -146}
+  m_AnchoredPosition: {x: 0, y: -146.00002}
   m_SizeDelta: {x: -543.32574, y: -318.1637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526648226
@@ -2268,7 +2260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.5, y: -5.1999207}
+  m_AnchoredPosition: {x: -40.5, y: -5.199951}
   m_SizeDelta: {x: 68.33229, y: -389.10114}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1660817657
@@ -2487,7 +2479,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 519420034}
-        m_MethodName: onCloudClick3
+        m_MethodName: OnCloudClick3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

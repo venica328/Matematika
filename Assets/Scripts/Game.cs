@@ -7,34 +7,40 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     public static Game instance;
-    [SerializeField]
-    public Text timeCountDown, score, fault;
-    public int timer = 10;
-    public int curScore, curFaults, finalScore;
 
+    private int CurScore, CurFaults, number;
+
+    public Text timeCountDown, score, fault;
+    public int timer = 60;
+    public int finalScore;
 
     private void Awake()
     {
         if (instance == null) instance = this;
+        if(PlayerPrefs.GetInt("timer") != 0)
+        {
+            timer = PlayerPrefs.GetInt("timer");
+        }
+        timer = 60;
+        Debug.Log(timer);
     }
-    void Start()
+    private void Start()
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
         score.text = "" + 0;
         fault.text = "" + 0;
-
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         timeCountDown.text = ("" + timer);
         if (timer == 0)
         {
             MenuManager.instance.LoadInputDataScene();
-            finalScore = curScore - curFaults;
+            finalScore = CurScore - CurFaults;
         }
+        number = CurScore;
+        PlayerPrefs.SetInt("number", number);
     }
 
     IEnumerator LoseTime()
@@ -45,18 +51,14 @@ public class Game : MonoBehaviour
             timer--;
         }
     }
-
-    public void increaseScore()
+    public void IncreaseScore()
     {
-        curScore++;
-        score.text = "" + curScore;
+        CurScore++;
+        score.text = "" + CurScore;
     }
-
-    public void increaseFaults()
+    public void IncreaseFaults()
     {
-        curFaults++;
-        fault.text = "" + curFaults;
+        CurFaults++;
+        fault.text = "" + CurFaults;
     }
-
-
 }

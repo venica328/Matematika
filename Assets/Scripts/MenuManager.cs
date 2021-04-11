@@ -12,16 +12,6 @@ public class MenuManager : MonoBehaviour
     {
         if (instance == null) instance = this;
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void LoadMenuScene()
     {
@@ -49,11 +39,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void QuitApplication()
+    private void QuitApplication()
     {
         Debug.Log("koniec");
         QuitApplication();
     }
-
-
 }
