@@ -10,10 +10,14 @@ public class GetScore : MonoBehaviour
     public static GetScore instance;
     public string highscoreURL = "http://unity-matematika.cekuj.net/display.php";
     public Text getScoreText;
+
+    //metóda, ktorá zavolá metódu GetScore() a zobrazí v hre skóre hráčov
     void Start()
     {
         StartCoroutine(GetScores());
     }
+
+    //metóda, ktorá zobrazí skóre hráčov zo servera
     IEnumerator GetScores()
     {
         getScoreText.text = "Loading data";

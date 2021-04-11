@@ -13,37 +13,38 @@ public class Server : MonoBehaviour
     [SerializeField]
     public Text sendScoreText, sendName;
 
+    //metóda, ktorá vytvorí inštanciu triedy
     private void Awake()
     {
         if (instance == null)
             instance = this;
     }
 
+    //metóda, ktorá zakóduje dáta, ktorá sa budú posielať na server
     private string Md5Sum(string strToEncrypt)
     {
         System.Text.UTF8Encoding ue = new System.Text.UTF8Encoding();
         byte[] bytes = ue.GetBytes(strToEncrypt);
 
-        // encrypt bytes
         System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
         byte[] hashBytes = md5.ComputeHash(bytes);
 
-        // Convert the encrypted bytes back to a string (base 16)
         string hashString = "";
 
         for (int i = 0; i < hashBytes.Length; i++)
         {
             hashString += System.Convert.ToString(hashBytes[i], 16).PadLeft(2, '0');
         }
-
         return hashString.PadLeft(32, '0');
     }
 
+    //metóda pre button, kedy sa po kliknutí naň pošlú dáta na server
     public void PostScoreButton()
     {
         StartCoroutine(PostScores(sendName.text, sendScoreText.text));
     }
 
+    //metóda, ktorá zabezpčuje aké dáta sa budú posielať na server
     IEnumerator PostScores(string curName, string curScore)
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();

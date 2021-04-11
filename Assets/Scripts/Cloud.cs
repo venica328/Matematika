@@ -10,6 +10,7 @@ public class Cloud : MonoBehaviour
 {
     public Button cloud, cloud2, cloud3, cloud4, cloud5;
 
+    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
     public void OnCloudClick()
     {
         var colors = cloud.GetComponent<Button>().colors;
@@ -32,7 +33,7 @@ public class Cloud : MonoBehaviour
         ReadFile.instance.DisplayRandomLine();
     }
 
-
+    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
     public void OnCloudClick2()
     {
         var colors = cloud2.GetComponent<Button>().colors;
@@ -56,6 +57,7 @@ public class Cloud : MonoBehaviour
         ReadFile.instance.DisplayRandomLine();
     }
 
+    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
     public void OnCloudClick3()
     {
         var colors = cloud3.GetComponent<Button>().colors;
@@ -79,6 +81,7 @@ public class Cloud : MonoBehaviour
         ReadFile.instance.DisplayRandomLine();
     }
 
+    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
     public void OnCloudClick4()
     {
         var colors = cloud4.GetComponent<Button>().colors;
@@ -102,6 +105,7 @@ public class Cloud : MonoBehaviour
         ReadFile.instance.DisplayRandomLine();
     }
 
+    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
     public void OnCloudClick5()
     {
         var colors = cloud5.GetComponent<Button>().colors;

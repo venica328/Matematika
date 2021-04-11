@@ -12,25 +12,34 @@ public class Options : MonoBehaviour
     private int Timer;
     private string FileName;
 
+    //metóda, ktorá vytvorí inštanciu triedy
     private void Awake()
     {
         if (instance == null) instance = this;
     }
+
+    //metóda, ktorá určí z akého súboru sa má čítať
     public void ChangeFileNameToLow()
     {
         FileName = "lowLevel.txt";
         PlayerPrefs.SetString("fileName", FileName);
     }
+
+    //metóda, ktorá určí z akého súboru sa má čítať
     public void ChangeFileNameToHigh()
     {
         FileName = "highLevel.txt";
         PlayerPrefs.SetString("fileName", FileName);
     }
+
+    //metóda, ktorá určí z akého súboru sa má čítať
     public void ChangeFileNameToMix()
     {
         FileName = "mixLevel.txt";
         PlayerPrefs.SetString("fileName", FileName);
     }
+
+    //metóda, ktorá nastaví čas hry na 30 sekúnd
     public void ChangeTimeTo30()
     {
         var colors = button30.GetComponent<Button>().colors;
@@ -52,6 +61,8 @@ public class Options : MonoBehaviour
             button120.GetComponent<Button>().colors = but120;
         }
     }
+
+    //metóda, ktorá nastaví čas hry na 60 sekúnd
     public void ChangeTimeTo60()
     {
         var colors = button60.GetComponent<Button>().colors;
@@ -73,6 +84,8 @@ public class Options : MonoBehaviour
             button120.GetComponent<Button>().colors = but120;
         }
     }
+
+    //metóda, ktorá nastaví čas hry na 90 sekúnd
     public void ChangeTimeTo90()
     {
         var colors = button90.GetComponent<Button>().colors;
@@ -94,6 +107,8 @@ public class Options : MonoBehaviour
             button120.GetComponent<Button>().colors = but120;
         }
     }
+
+    //metóda, ktorá nastaví čas hry na 120 sekúnd
     public void ChangeTimeTo120()
     {
         var colors = button120.GetComponent<Button>().colors;
