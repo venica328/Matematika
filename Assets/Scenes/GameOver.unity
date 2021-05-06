@@ -727,8 +727,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503462689}
   m_HandleRect: {fileID: 503462688}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.4332941
+  m_Value: 0.99999976
+  m_Size: 0.43329403
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 1272992292}
   - component: {fileID: 1272992291}
   m_Layer: 5
-  m_Name: Skore
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1690697137}
   - component: {fileID: 1690697136}
   m_Layer: 5
-  m_Name: Poradie
+  m_Name: Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,8 +1452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211, y: 192.74}
-  m_SizeDelta: {x: 82.602325, y: 31.558647}
+  m_AnchoredPosition: {x: -203.66, y: 192.74}
+  m_SizeDelta: {x: 97.289734, y: 31.558647}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1690697136
 MonoBehaviour:
@@ -1762,10 +1762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04630da6e9d53184e9e51208d9e43c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addScoreURL: http://unity-matematika.cekuj.net/addscore.php?
-  sendScoreText: {fileID: 0}
-  sendName: {fileID: 0}
-  items: []
+  AddScoreURL: http://unity-matematika.cekuj.net/addscore.php?
+  SendScoreText: {fileID: 0}
+  SendName: {fileID: 0}
 --- !u!114 &1939792406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,8 +1777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a8ef236d05c2445a5e11eccc8e4175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreURL: http://unity-matematika.cekuj.net/display.php
-  getScoreText: {fileID: 458589907}
+  HighscoreURL: http://unity-matematika.cekuj.net/display.php
+  GetScoreText: {fileID: 458589907}
 --- !u!1 &1942768605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1791,7 @@ GameObject:
   - component: {fileID: 1942768608}
   - component: {fileID: 1942768607}
   m_Layer: 5
-  m_Name: Meno
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f75cf9c397683041bd2fb30ecd9ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScore: {fileID: 172752660}
+  FinalScore: {fileID: 172752660}
 --- !u!114 &316041458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,12 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04630da6e9d53184e9e51208d9e43c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addScoreURL: http://unity-matematika.cekuj.net/addscore.php?
-  highscoreURL: http://unity-matematika.cekuj.net/display.php
-  getScoreText: {fileID: 0}
-  sendScoreText: {fileID: 172752660}
-  sendName: {fileID: 265509300}
-  items: []
+  AddScoreURL: http://unity-matematika.cekuj.net/addscore.php?
+  SendScoreText: {fileID: 172752660}
+  SendName: {fileID: 265509300}
 --- !u!1 &377240530
 GameObject:
   m_ObjectHideFlags: 0

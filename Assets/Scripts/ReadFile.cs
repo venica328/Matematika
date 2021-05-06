@@ -5,189 +5,169 @@ using System;
 using System.IO;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class ReadFile : MonoBehaviour
 {
-    public static ReadFile instance;
+    public static ReadFile Instance;
 
-    private string Pom, Priklad, Zly1, Zly2, Zly3, Zly4;
-    private string[] StringArray;
-    private int Rand, Number;
+    private string pom, example, bad1, bad2, bad3, bad4;
+    private string[] stringArray;
+    private int rand, number;
 
     [SerializeField]
-    public Button buttonLow, buttonHigh, buttonMix;
-    public GameObject cloud1Text, cloud2Text, cloud3Text, cloud4Text, cloud5Text, tableText;
-    public string vysledok, fileName, filePath;
-    
-    //metóda, ktorá vytvorí inštanciu triedy a zisťuje z akého súboru si hráč zvolil načítať dáta
+    public Button ButtonLow, ButtonHigh, ButtonMix;
+    public GameObject Cloud1Text, Cloud2Text, Cloud3Text, Cloud4Text, Cloud5Text, TableText;
+    public string Result, FileName, FilePath;
+    public int ResultFilename = 0;
+
+
+    /// <summary>
+    /// metóda, ktorá vytvorí inštanciu triedy a zisťuje z akého súboru si hráč zvolil načítať dáta
+    /// </summary>
     private void Awake()
     {
-        if (instance == null) instance = this;
-        if(PlayerPrefs.GetString("fileName") == "mixLevel.txt")
+        if (Instance == null) Instance = this;
+
+        if (PlayerPrefs.GetString("fileName") == "mixLevel.txt")
         {
-            Mix();
+            stringArray = ((TextAsset)Resources.Load("mixLevel", typeof(TextAsset))).text.Split('\n');
         }
-        //ak si hráč nevyberal súbor dáta sa automaticky načítajú zo súboru lowLevel
-        else if(fileName == "")
+        else if (PlayerPrefs.GetString("fileName") == "lowLevel.txt")
         {
-            fileName = "lowLevel.txt";
-            filePath = Application.dataPath + (@"\Files\" + fileName);
+            stringArray = ((TextAsset)Resources.Load("lowLevel", typeof(TextAsset))).text.Split('\n');
         }
-        ReadAllLines();
+        else if (PlayerPrefs.GetString("fileName") == "highLevel.txt")
+        {
+            stringArray = ((TextAsset)Resources.Load("highLevel", typeof(TextAsset))).text.Split('\n');
+        }
+        else
+        {
+            stringArray = ((TextAsset)Resources.Load("lowLevel", typeof(TextAsset))).text.Split('\n');
+        }
+
         DisplayRandomLine();
     }
-
-    //metóda pre aktualizáciu metódy Mix()
+    /// <summary>
+    /// metóda, ktorá aktualizuje číslo, v ktorom je hráčovo skóre
+    /// </summary>
     private void Update()
     {
-        Number = PlayerPrefs.GetInt("number");
-        Mix();
+        number = PlayerPrefs.GetInt("number");
     }
 
-
-    //metóda, ktorá zisťuje na základe počtu uhádnutých príkladov, z ktorého súboru sa majú ďalej načítavať dáta
-    //ak si hráč na začiatku zvolil mix variantu
-    private void Mix()
-    {
-        if(Number < 10)
-        {
-            fileName = "lowLevel.txt";
-            Debug.Log("filename: " + fileName);
-            PlayerPrefs.SetString("fileName", fileName);
-            filePath = Application.dataPath + (@"\Files\" + fileName);
-            ReadAllLines();
-            Debug.Log(filePath);
-        }
-        else if (Number >= 10 && Number < 15)
-        {
-            fileName = "highLevel.txt";
-            Debug.Log("filename: " + fileName);
-            PlayerPrefs.SetString("fileName", fileName);
-            filePath = Application.dataPath + (@"\Files\" + fileName);
-            ReadAllLines();
-            Debug.Log(filePath);
-        }
-        else if (Number >= 15)
-        {
-            fileName = "mixLevel.txt";
-            Debug.Log("filename: " + fileName);
-            PlayerPrefs.SetString("fileName", fileName);
-            filePath = Application.dataPath + (@"\Files\" + fileName);
-            ReadAllLines();
-            Debug.Log(filePath);
-        }
-    }
-
-    //metóda, ktorá zabezpečuje čítanie dát po riadkov zo súboru
-    private void ReadAllLines()
-    {
-        StringArray = File.ReadAllLines(filePath);
-        foreach (string line in StringArray)
-        {
-            // print(line);
-        }
-    }
-
-    //metóda, ktorá roztriedi výsledky z súboru do objektov
+    /// <summary>
+    /// metóda, ktorá roztriedi výsledky zo súboru do objektov
+    /// </summary>
     private void SortRandom()
     {
-        Rand = UnityEngine.Random.Range(1, 5);
-        if (Rand == 1)
+        rand = UnityEngine.Random.Range(1, 5);
+        if (rand == 1)
         {
-            cloud1Text.GetComponent<Text>().text = vysledok;
+            Cloud1Text.GetComponent<Text>().text = Result;
         }
-        else if (Rand == 2)
+        else if (rand == 2)
         {
-            Pom = cloud2Text.GetComponent<Text>().text;
-            cloud2Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = Pom;
+            pom = Cloud2Text.GetComponent<Text>().text;
+            Cloud2Text.GetComponent<Text>().text = Result;
+            Cloud1Text.GetComponent<Text>().text = pom;
         }
-        else if (Rand == 3)
+        else if (rand == 3)
         {
-            Pom = cloud3Text.GetComponent<Text>().text;
-            cloud3Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = Pom;
+            pom = Cloud3Text.GetComponent<Text>().text;
+            Cloud3Text.GetComponent<Text>().text = Result;
+            Cloud1Text.GetComponent<Text>().text = pom;
         }
-        else if (Rand == 4)
+        else if (rand == 4)
         {
-            Pom = cloud4Text.GetComponent<Text>().text;
-            cloud4Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = Pom;
+            pom = Cloud4Text.GetComponent<Text>().text;
+            Cloud4Text.GetComponent<Text>().text = Result;
+            Cloud1Text.GetComponent<Text>().text = pom;
         }
-        else if (Rand == 5)
+        else if (rand == 5)
         {
-            Pom = cloud5Text.GetComponent<Text>().text;
-            cloud5Text.GetComponent<Text>().text = vysledok;
-            cloud1Text.GetComponent<Text>().text = Pom;
+            pom = Cloud5Text.GetComponent<Text>().text;
+            Cloud5Text.GetComponent<Text>().text = Result;
+            Cloud1Text.GetComponent<Text>().text = pom;
         }
     }
 
-    //metóda, ktorá číta random riadky a triedi dáta
+    /// <summary>
+    /// metóda, ktorá číta random riadky a triedi dáta
+    /// </summary>
     public void DisplayRandomLine()
     {
-        int randomNumber = UnityEngine.Random.Range(0, StringArray.Length);
-        var splitLine = StringArray[randomNumber].Split(';');
-        Priklad = splitLine[0];
-        vysledok = splitLine[1];
-        Zly1 = splitLine[2];
-        Zly2 = splitLine[3];
-        Zly3 = splitLine[4];
-        Zly4 = splitLine[5];
-        cloud1Text.GetComponent<Text>().text = vysledok;
-        cloud2Text.GetComponent<Text>().text = Zly1;
-        cloud3Text.GetComponent<Text>().text = Zly2;
-        cloud4Text.GetComponent<Text>().text = Zly3;
-        cloud5Text.GetComponent<Text>().text = Zly4;
-        tableText.GetComponent<Text>().text = Priklad;
+        int randomNumber = UnityEngine.Random.Range(0, stringArray.Length);
+        var splitLine = stringArray[randomNumber].Split(';');
+
+        example = splitLine[0];
+        Result = splitLine[1];
+        bad1 = splitLine[2];
+        bad2 = splitLine[3];
+        bad3 = splitLine[4];
+        bad4 = splitLine[5];
+
+        Cloud1Text.GetComponent<Text>().text = Result;
+        Cloud2Text.GetComponent<Text>().text = bad1;
+        Cloud3Text.GetComponent<Text>().text = bad2;
+        Cloud4Text.GetComponent<Text>().text = bad3;
+        Cloud5Text.GetComponent<Text>().text = bad4;
+        TableText.GetComponent<Text>().text = example;
         SortRandom();
     }
 
-    //metóda pre button, kde si hráč volí variantu hry
+    /// <summary>
+    /// metóda pre button, kde si hráč volí variantu hry malá násobilka
+    /// </summary>
     public void LowLevel()
     {
-        var colors = buttonLow.GetComponent<Button>().colors;
-        var butHigh = buttonHigh.GetComponent<Button>().colors;
-        var butMix = buttonMix.GetComponent<Button>().colors;
+        var colors = ButtonLow.GetComponent<Button>().colors;
+        var butHigh = ButtonHigh.GetComponent<Button>().colors;
+        var butMix = ButtonMix.GetComponent<Button>().colors;
 
         colors.normalColor = Color.green;
-        buttonLow.GetComponent<Button>().colors = colors;
+        ButtonLow.GetComponent<Button>().colors = colors;
 
         butHigh.normalColor = Color.white;
-        buttonHigh.GetComponent<Button>().colors = butHigh;
+        ButtonHigh.GetComponent<Button>().colors = butHigh;
         butMix.normalColor = Color.white;
-        buttonMix.GetComponent<Button>().colors = butMix;
+        ButtonMix.GetComponent<Button>().colors = butMix;
     }
 
-    //metóda pre button, kde si hráč volí variantu hry
+    /// <summary>
+    /// metóda pre button, kde si hráč volí variantu hry vyššia násobilka
+    /// </summary>
     public void HighLevel()
     {
-        var colors = buttonHigh.GetComponent<Button>().colors;
-        var butLow = buttonLow.GetComponent<Button>().colors;
-        var butMix = buttonMix.GetComponent<Button>().colors;
+        var colors = ButtonHigh.GetComponent<Button>().colors;
+        var butLow = ButtonLow.GetComponent<Button>().colors;
+        var butMix = ButtonMix.GetComponent<Button>().colors;
 
         colors.normalColor = Color.green;
-        buttonHigh.GetComponent<Button>().colors = colors;
+        ButtonHigh.GetComponent<Button>().colors = colors;
 
         butLow.normalColor = Color.white;
-        buttonLow.GetComponent<Button>().colors = butLow;
+        ButtonLow.GetComponent<Button>().colors = butLow;
         butMix.normalColor = Color.white;
-        buttonMix.GetComponent<Button>().colors = butMix;
+        ButtonMix.GetComponent<Button>().colors = butMix;
     }
 
-    //metóda pre button, kde si hráč volí variantu hry
+    /// <summary>
+    /// metóda pre button, kde si hráč volí variantu hry Mix
+    /// </summary>
     public void MixLevel()
     {
-        var colors = buttonMix.GetComponent<Button>().colors;
-        var butLow = buttonLow.GetComponent<Button>().colors;
-        var butHigh = buttonHigh.GetComponent<Button>().colors;
+        var colors = ButtonMix.GetComponent<Button>().colors;
+        var butLow = ButtonLow.GetComponent<Button>().colors;
+        var butHigh = ButtonHigh.GetComponent<Button>().colors;
 
         colors.normalColor = Color.green;
-        buttonMix.GetComponent<Button>().colors = colors;
+        ButtonMix.GetComponent<Button>().colors = colors;
 
         butLow.normalColor = Color.white;
-        buttonLow.GetComponent<Button>().colors = butLow;
+        ButtonLow.GetComponent<Button>().colors = butLow;
         butHigh.normalColor = Color.white;
-        buttonHigh.GetComponent<Button>().colors = butHigh;
+        ButtonHigh.GetComponent<Button>().colors = butHigh;
     }
 
 }

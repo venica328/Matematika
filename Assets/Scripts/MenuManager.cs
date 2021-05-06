@@ -6,50 +6,64 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager instance;
+    public static MenuManager Instance;
 
-    //metóda, ktorá vytvorí inštanciu triedy
+    /// <summary>
+    /// metóda, ktorá vytvorí inštanciu triedy
+    /// </summary>
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
     }
 
-    //metóda, ktorá načíta Menu UI
+    /// <summary>
+    /// metóda, ktorá načíta Menu UI
+    /// </summary>
     public void LoadMenuScene()
     {
         SceneManager.LoadScene("Menu");
     }
 
-    //metóda, ktorá načíta Game UI
+    /// <summary>
+    /// metóda, ktorá načíta Game UI
+    /// </summary>
     public void LoadSceneGame()
     {
         SceneManager.LoadScene("Game");
     }
 
-    //metóda, ktorá načíta GameOver UI
+    /// <summary>
+    /// metóda, ktorá načíta GameOver UI
+    /// </summary>
     public void LoadGameOverScene()
     {
         SceneManager.LoadScene("GameOver");
     }
 
-    //metóda, ktorá načíta Options UI
+    /// <summary>
+    /// metóda, ktorá načíta Options UI
+    /// </summary>
     public void LoadOptionScene()
     {
         SceneManager.LoadScene("Options");
     }
 
-    //metóda, ktorá načíta InputData UI
+    /// <summary>
+    /// metóda, ktorá načíta InputData UI
+    /// </summary>
     public void LoadInputDataScene()
     {
-        if (Game.instance.timer == 0)
+        if (Game.Instance.Timer == 0)
         {
             SceneManager.LoadScene("InputData");
         }
     }
 
-    //metóda, ktorá ukončí hru
-    private void QuitApplication()
+    /// <summary>
+    /// metóda, ktorá ukončí hru
+    /// </summary>
+    public void QuitApplication()
     {
-        QuitApplication();
+        Application.Quit();
     }
 }

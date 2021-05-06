@@ -7,20 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class Server : MonoBehaviour
 {
-    public static Server instance;
-    public string addScoreURL = "http://unity-matematika.cekuj.net/addscore.php?"; 
-    private readonly string SecretKey = "janko"; 
-    [SerializeField]
-    public Text sendScoreText, sendName;
+    public static Server Instance;
+    public string AddScoreURL = "http://unity-matematika.cekuj.net/addscore.php?"; 
+    private readonly string secretKey = "janko"; 
 
-    //metóda, ktorá vytvorí inštanciu triedy
+    [SerializeField]
+    public Text SendScoreText, SendName;
+
+    /// <summary>
+    /// metóda, ktorá vytvorí inštanciu triedy
+    /// </summary>
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
-    //metóda, ktorá zakóduje dáta, ktorá sa budú posielať na server
+    /// <summary>
+    /// metóda, ktorá zakóduje dáta, ktorá sa budú posielať na server
+    /// </summary>
+    /// <param name="strToEncrypt"></param>
+    /// <returns>hash</returns>
     private string Md5Sum(string strToEncrypt)
     {
         System.Text.UTF8Encoding ue = new System.Text.UTF8Encoding();
@@ -38,26 +45,34 @@ public class Server : MonoBehaviour
         return hashString.PadLeft(32, '0');
     }
 
-    //metóda pre button, kedy sa po kliknutí naň pošlú dáta na server
+    /// <summary>
+    /// metóda pre button, kedy sa po kliknutí naň pošlú dáta na server
+    /// </summary>
     public void PostScoreButton()
     {
-        StartCoroutine(PostScores(sendName.text, sendScoreText.text));
+        StartCoroutine(PostScores(SendName.text, SendScoreText.text));
     }
 
-    //metóda, ktorá zabezpčuje aké dáta sa budú posielať na server
+    /// <summary>
+    /// metóda, ktorá zabezpčuje aké dáta sa budú posielať na server
+    /// </summary>
+    /// <param name="curName"></param>
+    /// <param name="curScore"></param>
+    /// <returns>vráti buď, že sa dáta poslali alebo nie</returns>
     IEnumerator PostScores(string curName, string curScore)
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormFileSection("name", curName));
         formData.Add(new MultipartFormFileSection("score", curScore));
-        string hash = Md5Sum(curName + curScore + SecretKey);
-        string post_url = addScoreURL + "name=" + curName + "&score=" + curScore + "&hash=" + hash;
+        string hash = Md5Sum(curName + curScore + secretKey);
+        string post_url = AddScoreURL + "name=" + curName + "&score=" + curScore + "&hash=" + hash;
 
         UnityWebRequest www = UnityWebRequest.Post(post_url, formData);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {
+            Debug.Log("Form upload failed!");
             Debug.Log(www.error);
         }
         else

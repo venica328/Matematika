@@ -6,69 +6,88 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    public static Game instance;
-    private int CurScore, CurFaults, number;
-    public Text timeCountDown, score, fault;
-    public int timer = 60;
-    public int finalScore;
+    public static Game Instance;
+    private int curScore, curFaults, number;
+    public Text TimeCountDown, Score, Fault;
+    public int Timer;
+    public int FinalScore;
 
-    //metóda, ktorá vytvorí inštanciu triedy a nastaví čas
+    /// <summary>
+    /// metóda, ktorá vytvorí inštanciu triedy a nastaví čas
+    /// </summary>
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
         //ak čas nezadá hráč je automatikcy nastavený na 60 sekúnd
-        if(PlayerPrefs.GetInt("timer") != 0)
+        if (PlayerPrefs.GetInt("timer") != 0)
         {
-            timer = PlayerPrefs.GetInt("timer");
+            Debug.Log(PlayerPrefs.GetInt("timer"));
+            Timer = PlayerPrefs.GetInt("timer");
         }
-        timer = 60;
-        Debug.Log(timer);
+        else
+        {
+            Timer = 60;
+            Debug.Log(Timer);
+        }
     }
 
-    //metóda, ktorá nastaví počiatočný stav hry
+    /// <summary>
+    /// metóda, ktorá nastaví počiatočný stav hry a mana6uje plynutie času
+    /// </summary>
     private void Start()
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
-        score.text = "" + 0;
-        fault.text = "" + 0;
+        Score.text = "" + 0;
+        Fault.text = "" + 0;
     }
 
-    //metóda, ktorá aktualizuje čas v hre
+    /// <summary>
+    /// metóda, ktorá aktualizuje čas v hre
+    /// </summary>
     private void Update()
     {
-        timeCountDown.text = ("" + timer);
+        TimeCountDown.text = ("" + Timer);
         //ak čas uplynie, vyhodnotí sa skóre a nastaví sa nové UI
-        if (timer == 0)
+        if (Timer == 0)
         {
-            MenuManager.instance.LoadInputDataScene();
-            finalScore = CurScore - CurFaults;
+            MenuManager.Instance.LoadInputDataScene();
+            FinalScore = curScore - curFaults;
+            Timer = 60;
         }
-        number = CurScore;
+        number = curScore;
         PlayerPrefs.SetInt("number", number);
+        Debug.Log("skore" + number);
     }
 
-    //metóda, ktorá odpočítava čas hry
+    /// <summary>
+    /// metóda, ktorá odpočítava čas hry
+    /// </summary>
+    /// <returns>vráti vždy aktuálny odpočet</returns>
     IEnumerator LoseTime()
     {
         while (true)
         {
             yield return new WaitForSeconds(1);
-            timer--;
+            Timer--;
         }
     }
 
-    //metóda, ktorá zvyšuje skóre
+    /// <summary>
+    /// metóda, ktorá zvyšuje skóre
+    /// </summary>
     public void IncreaseScore()
     {
-        CurScore++;
-        score.text = "" + CurScore;
+        curScore++;
+        Score.text = "" + curScore;
     }
 
-    //metóda, ktorá zvyšuje nesprávny ťah hráča
+    /// <summary>
+    /// metóda, ktorá zvyšuje nesprávny ťah hráča
+    /// </summary>
     public void IncreaseFaults()
     {
-        CurFaults++;
-        fault.text = "" + CurFaults;
+        curFaults++;
+        Fault.text = "" + curFaults;
     }
 }

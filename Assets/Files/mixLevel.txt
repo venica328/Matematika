@@ -1,9 +1,0 @@
-S stvorca;a x a;2 x a;a;a x b;b - a
-O stvorca;4 x a;a x a; a + b;b + b;3 + c
-S obdlznika;a x b;a + b;b - a;b;b x 2
-O obdlznika;2 x (a + b);2 + (a x a);a + b;b;3 x a
-O trojuholnika;a + b + c;a x a x b;a - c;b x (a + b);c
-S kruhu;pi x r x r;pi - 2; pi;pi x pi;2 + r
-O kruhu;pi x d;d x d;d + r;r x d + 2;pi - 2
-polomer;r;s;m;k;d
-priemer;d;a;n;e;r

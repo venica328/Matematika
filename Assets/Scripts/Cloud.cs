@@ -8,124 +8,136 @@ using UnityEngine.UI;
 
 public class Cloud : MonoBehaviour
 {
-    public Button cloud, cloud2, cloud3, cloud4, cloud5;
+    public Button Cloud1, Cloud2, Cloud3, Cloud4, Cloud5;
 
-    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// <summary>
+    /// metóda pre button Cloud1, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// podľa toho sa button sfarbí nazeleno alebo načerveno
+    /// </summary>
     public void OnCloudClick()
     {
-        var colors = cloud.GetComponent<Button>().colors;
+        var colors = Cloud1.GetComponent<Button>().colors;
         colors.selectedColor = Color.white;
-        cloud.GetComponent<Button>().colors = colors;
+        Cloud1.GetComponent<Button>().colors = colors;
 
-        if (ReadFile.instance.cloud1Text.GetComponent<Text>().text == ReadFile.instance.vysledok)
+        if (ReadFile.Instance.Cloud1Text.GetComponent<Text>().text == ReadFile.Instance.Result)
         {            
             colors.selectedColor = Color.green;
-            cloud.GetComponent<Button>().colors = colors;
-            Game.instance.IncreaseScore();
+            Cloud1.GetComponent<Button>().colors = colors;
+            Game.Instance.IncreaseScore();
         } 
         else
         {
             colors.selectedColor = Color.red;
-            cloud.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud1Text.GetComponent<Text>().text);
-            Game.instance.IncreaseFaults();
+            Cloud1.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud1Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseFaults();
         }
-        ReadFile.instance.DisplayRandomLine();
+        ReadFile.Instance.DisplayRandomLine();
     }
-
-    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// <summary>
+    /// metóda pre button Cloud2, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// podľa toho sa button sfarbí nazeleno alebo načerveno
+    /// </summary>
     public void OnCloudClick2()
     {
-        var colors = cloud2.GetComponent<Button>().colors;
+        var colors = Cloud2.GetComponent<Button>().colors;
         colors.selectedColor = Color.white;
-        cloud2.GetComponent<Button>().colors = colors;
+        Cloud2.GetComponent<Button>().colors = colors;
 
-        if (ReadFile.instance.cloud2Text.GetComponent<Text>().text == ReadFile.instance.vysledok)
+        if (ReadFile.Instance.Cloud2Text.GetComponent<Text>().text == ReadFile.Instance.Result)
         {          
             colors.selectedColor = Color.green;
-            cloud2.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud2Text.GetComponent<Text>().text);
-            Game.instance.IncreaseScore();
+            Cloud2.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud2Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseScore();
         }
         else
         {
             colors.selectedColor = Color.red;
-            cloud2.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud2Text.GetComponent<Text>().text);
-            Game.instance.IncreaseFaults();
+            Cloud2.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud2Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseFaults();
         }
-        ReadFile.instance.DisplayRandomLine();
+        ReadFile.Instance.DisplayRandomLine();
     }
-
-    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// <summary>
+    /// metóda pre button Cloud3, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// podľa toho sa button sfarbí nazeleno alebo načerveno
+    /// </summary>
     public void OnCloudClick3()
     {
-        var colors = cloud3.GetComponent<Button>().colors;
+        var colors = Cloud3.GetComponent<Button>().colors;
         colors.selectedColor = Color.white;
-        cloud3.GetComponent<Button>().colors = colors;
+        Cloud3.GetComponent<Button>().colors = colors;
 
-        if (ReadFile.instance.cloud3Text.GetComponent<Text>().text == ReadFile.instance.vysledok)
+        if (ReadFile.Instance.Cloud3Text.GetComponent<Text>().text == ReadFile.Instance.Result)
         {
             colors.selectedColor = Color.green;
-            cloud3.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud3Text.GetComponent<Text>().text);
-            Game.instance.IncreaseScore();
+            Cloud3.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud3Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseScore();
         }
         else
         {
             colors.selectedColor = Color.red;
-            cloud3.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud3Text.GetComponent<Text>().text);
-            Game.instance.IncreaseFaults();
+            Cloud3.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud3Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseFaults();
         }
-        ReadFile.instance.DisplayRandomLine();
+        ReadFile.Instance.DisplayRandomLine();
     }
-
-    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// <summary>
+    /// metóda pre button Cloud4, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// podľa toho sa button sfarbí nazeleno alebo načerveno
+    /// </summary>
     public void OnCloudClick4()
     {
-        var colors = cloud4.GetComponent<Button>().colors;
+        var colors = Cloud4.GetComponent<Button>().colors;
         colors.selectedColor = Color.white;
-        cloud4.GetComponent<Button>().colors = colors;
+        Cloud4.GetComponent<Button>().colors = colors;
 
-        if (ReadFile.instance.cloud4Text.GetComponent<Text>().text == ReadFile.instance.vysledok)
+        if (ReadFile.Instance.Cloud4Text.GetComponent<Text>().text == ReadFile.Instance.Result)
         {
             colors.selectedColor = Color.green;
-            cloud4.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud4Text.GetComponent<Text>().text);
-            Game.instance.IncreaseScore();
+            Cloud4.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud4Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseScore();
         }
         else
         {
             colors.selectedColor = Color.red;
-            cloud4.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud4Text.GetComponent<Text>().text);
-            Game.instance.IncreaseFaults();
+            Cloud4.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud4Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseFaults();
         }
-        ReadFile.instance.DisplayRandomLine();
+        ReadFile.Instance.DisplayRandomLine();
     }
 
-    //metóda pre button, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// <summary>
+    /// metóda pre button Cloud5, ktorá po kliknutí overuje či hráč klikol správne alebo nesprávne
+    /// podľa toho sa button sfarbí nazeleno alebo načerveno
+    /// </summary>
     public void OnCloudClick5()
     {
-        var colors = cloud5.GetComponent<Button>().colors;
+        var colors = Cloud5.GetComponent<Button>().colors;
         colors.selectedColor = Color.white;
-        cloud5.GetComponent<Button>().colors = colors;
+        Cloud5.GetComponent<Button>().colors = colors;
 
-        if (ReadFile.instance.cloud5Text.GetComponent<Text>().text == ReadFile.instance.vysledok)
+        if (ReadFile.Instance.Cloud5Text.GetComponent<Text>().text == ReadFile.Instance.Result)
         {
             colors.selectedColor = Color.green;
-            cloud5.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud5Text.GetComponent<Text>().text);
-            Game.instance.IncreaseScore();
+            Cloud5.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud5Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseScore();
         }
         else
         {
             colors.selectedColor = Color.red;
-            cloud5.GetComponent<Button>().colors = colors;
-            print(ReadFile.instance.cloud5Text.GetComponent<Text>().text);
-            Game.instance.IncreaseFaults();
+            Cloud5.GetComponent<Button>().colors = colors;
+            print(ReadFile.Instance.Cloud5Text.GetComponent<Text>().text);
+            Game.Instance.IncreaseFaults();
         }
-        ReadFile.instance.DisplayRandomLine();
+        ReadFile.Instance.DisplayRandomLine();
     }
 }

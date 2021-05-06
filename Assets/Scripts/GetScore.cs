@@ -7,25 +7,31 @@ using UnityEngine.SceneManagement;
 
 public class GetScore : MonoBehaviour
 {
-    public static GetScore instance;
-    public string highscoreURL = "http://unity-matematika.cekuj.net/display.php";
-    public Text getScoreText;
+    public static GetScore Instance;
+    public string HighscoreURL = "http://unity-matematika.cekuj.net/display.php";
+    public Text GetScoreText;
 
-    //metóda, ktorá zavolá metódu GetScore() a zobrazí v hre skóre hráčov
+    /// <summary>
+    /// metóda, ktorá zavolá metódu GetScore() a zobrazí v hre skóre hráčov
+    /// </summary>
     void Start()
     {
         StartCoroutine(GetScores());
     }
 
-    //metóda, ktorá zobrazí skóre hráčov zo servera
+    /// <summary>
+    /// metóda, ktorá zobrazí skóre hráčov zo servera
+    /// </summary>
+    /// <returns>vráti dáta zo servera alebo error</returns>
     IEnumerator GetScores()
     {
-        getScoreText.text = "Loading data";
-        UnityWebRequest www = UnityWebRequest.Get(highscoreURL);
+        GetScoreText.text = "Loading data";
+        UnityWebRequest www = UnityWebRequest.Get(HighscoreURL);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {
+            GetScoreText.text = "Loading data failed!";
             Debug.Log(www.error);
         }
         else
@@ -33,7 +39,7 @@ public class GetScore : MonoBehaviour
             string input = www.downloadHandler.text;
             input.Substring(133);
             Debug.Log(input.Substring(133));
-            getScoreText.text = input.Substring(133);
+            GetScoreText.text = input.Substring(133);
         }
     }
 }

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class InputData : MonoBehaviour
 {
-    public Text finalScore;
+    public Text FinalScore;
 
-    //metóda, ktorá zobrazí výsledné skóre hráča
+    /// <summary>
+    /// metóda, ktorá zobrazí výsledné skóre hráča
+    /// </summary>
     private void Start()
     {
-        finalScore.text = "" + Game.instance.finalScore;
+        FinalScore.text = "" + Game.Instance.FinalScore;
     }
 }

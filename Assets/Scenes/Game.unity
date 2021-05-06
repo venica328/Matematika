@@ -343,11 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 0}
-  cloud2: {fileID: 0}
-  cloud3: {fileID: 0}
-  cloud4: {fileID: 140418683}
-  cloud5: {fileID: 0}
+  Cloud1: {fileID: 0}
+  Cloud2: {fileID: 0}
+  Cloud3: {fileID: 0}
+  Cloud4: {fileID: 0}
+  Cloud5: {fileID: 0}
 --- !u!1 &160328424
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,11 +783,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 0}
-  cloud2: {fileID: 395396435}
-  cloud3: {fileID: 0}
-  cloud4: {fileID: 0}
-  cloud5: {fileID: 0}
+  Cloud1: {fileID: 0}
+  Cloud2: {fileID: 0}
+  Cloud3: {fileID: 0}
+  Cloud4: {fileID: 0}
+  Cloud5: {fileID: 0}
 --- !u!1 &490096173
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,11 +907,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5412bdcc279aaeb4e8f6ea9d39c31ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCountDown: {fileID: 490096175}
-  score: {fileID: 1759250609}
-  fault: {fileID: 1201132556}
-  timer: 60
-  finalScore: 0
+  TimeCountDown: {fileID: 490096175}
+  Score: {fileID: 1759250609}
+  Fault: {fileID: 1201132556}
+  Timer: 60
+  FinalScore: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -981,18 +981,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635d59215befaba49ae7807870b8917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonLow: {fileID: 0}
-  buttonHigh: {fileID: 0}
-  buttonMix: {fileID: 0}
-  cloud1Text: {fileID: 522484151}
-  cloud2Text: {fileID: 1498087206}
-  cloud3Text: {fileID: 1439279326}
-  cloud4Text: {fileID: 1043591778}
-  cloud5Text: {fileID: 579191750}
-  tableText: {fileID: 1608177560}
-  vysledok: 
-  fileName: 
-  filePath: 
+  ButtonLow: {fileID: 0}
+  ButtonHigh: {fileID: 0}
+  ButtonMix: {fileID: 0}
+  Cloud1Text: {fileID: 522484151}
+  Cloud2Text: {fileID: 1498087206}
+  Cloud3Text: {fileID: 1439279326}
+  Cloud4Text: {fileID: 1043591778}
+  Cloud5Text: {fileID: 579191750}
+  TableText: {fileID: 1608177560}
+  Result: 
+  FileName: 
+  FilePath: 
+  ResultFilename: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,11 +1006,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 1170480961}
-  cloud2: {fileID: 395396435}
-  cloud3: {fileID: 1907806941}
-  cloud4: {fileID: 140418683}
-  cloud5: {fileID: 570678799}
+  Cloud1: {fileID: 1170480961}
+  Cloud2: {fileID: 395396435}
+  Cloud3: {fileID: 1907806941}
+  Cloud4: {fileID: 140418683}
+  Cloud5: {fileID: 570678799}
 --- !u!1 &522484151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1023,7 @@ GameObject:
   - component: {fileID: 522484154}
   - component: {fileID: 522484153}
   m_Layer: 5
-  m_Name: TextVysledok
+  m_Name: TextResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,11 +1314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 0}
-  cloud2: {fileID: 0}
-  cloud3: {fileID: 0}
-  cloud4: {fileID: 0}
-  cloud5: {fileID: 570678799}
+  Cloud1: {fileID: 0}
+  Cloud2: {fileID: 0}
+  Cloud3: {fileID: 0}
+  Cloud4: {fileID: 0}
+  Cloud5: {fileID: 0}
 --- !u!1 &579191750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1331,7 @@ GameObject:
   - component: {fileID: 579191753}
   - component: {fileID: 579191752}
   m_Layer: 5
-  m_Name: TextZly4
+  m_Name: TextBad4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1396,6 +1397,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579191750}
   m_CullTransparentMesh: 0
+--- !u!1 &694619125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694619126}
+  m_Layer: 0
+  m_Name: Fonts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694619126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694619125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.249611, y: 0.78213245, z: -927.2139}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042386470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1505,7 @@ GameObject:
   - component: {fileID: 1043591781}
   - component: {fileID: 1043591780}
   m_Layer: 5
-  m_Name: TextZly3
+  m_Name: TextBad3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,11 +1715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 1170480961}
-  cloud2: {fileID: 395396435}
-  cloud3: {fileID: 1907806941}
-  cloud4: {fileID: 140418683}
-  cloud5: {fileID: 570678799}
+  Cloud1: {fileID: 0}
+  Cloud2: {fileID: 0}
+  Cloud3: {fileID: 0}
+  Cloud4: {fileID: 0}
+  Cloud5: {fileID: 0}
 --- !u!1 &1201132554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,7 +1941,7 @@ GameObject:
   - component: {fileID: 1439279329}
   - component: {fileID: 1439279328}
   m_Layer: 5
-  m_Name: TextZly2
+  m_Name: TextBad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +2019,7 @@ GameObject:
   - component: {fileID: 1498087209}
   - component: {fileID: 1498087208}
   m_Layer: 5
-  m_Name: TextZly1
+  m_Name: TextBad1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,7 +2121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -146.00002}
+  m_AnchoredPosition: {x: 0, y: -146}
   m_SizeDelta: {x: -543.32574, y: -318.1637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526648226
@@ -2157,7 +2188,7 @@ GameObject:
   - component: {fileID: 1608177563}
   - component: {fileID: 1608177562}
   m_Layer: 5
-  m_Name: TextPriklad
+  m_Name: TextExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2539,11 +2570,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d882990c6996924fb6fc07b1b3c3b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 0}
-  cloud2: {fileID: 0}
-  cloud3: {fileID: 1907806941}
-  cloud4: {fileID: 0}
-  cloud5: {fileID: 0}
+  Cloud1: {fileID: 0}
+  Cloud2: {fileID: 0}
+  Cloud3: {fileID: 0}
+  Cloud4: {fileID: 0}
+  Cloud5: {fileID: 0}
 --- !u!1 &2006846003
 GameObject:
   m_ObjectHideFlags: 0
